@@ -4,18 +4,18 @@ class Cart < ActiveRecord::Base
   belongs_to :user 
   
   def total
-    total_price = self.items.map{|item| item.price}.sum
+    self.items.map do |item| 
+      item.price * self.line_items.find_by(item_id: item.id).quantity
+      end.sum
   end
   
   def add_item(new_item_id)
-    self.line_items.map do |line_item|
-      if line_item.item_id == new_item_id
-        line_item.quantity += 1
-        line_item
-      else
-        self.line_items.build(item_id: new_item_id)
-      end
-    end.first
+    if line_item = self.line_items.find_by(item_id: new_item_id)
+      line_item.quantity += 1
+      line_item.save
+      line_item
+    else
+      self.line_items.build(item_id: new_item_id.to_i)
+    end
   end
-  
 end

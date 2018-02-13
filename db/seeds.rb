@@ -13,4 +13,6 @@ Item.all.each do |item|
   item.save
   counter += 1
 end
+
+User.create(email: 'avi@flatiron.co', password: 'super_secret')
  
