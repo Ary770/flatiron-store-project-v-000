@@ -20,10 +20,9 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
+  padding-top: 30px;
   padding-bottom: 30px;
-  padding-right: 30px;
-  padding-left: 60px;
+  padding-right: 70px;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -35,3 +34,14 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+nav .padding {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+div {
+  padding-left: 70px;
+  
+}
+
